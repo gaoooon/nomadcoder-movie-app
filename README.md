@@ -4,4 +4,3 @@
 
 - next
 - vanilla-extract
-# nomadcoder-movie-app
