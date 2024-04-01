@@ -7,7 +7,7 @@ export const Container = style({
 });
 
 export const MovieBoxContainer = style({
-  backgroundColor: '#4F4F51',
+  backgroundColor: '#191919',
   paddingRight: '1.5rem',
   paddingLeft: '1.5rem',
   display: 'flex',
@@ -28,4 +28,16 @@ export const MovieTitle = style({
   fontWeight: 600,
   WebkitTextStrokeWidth: 0.5,
   WebkitTextStrokeColor: '#111111',
+});
+
+export const Poster = style({
+  width: 300,
+  filter: 'brightness(50%)',
+  borderRadius: 15,
+  transition: 'all 0.5s',
+
+  ':hover': {
+    filter: 'brightness(105%)',
+    width: 320,
+  },
 });

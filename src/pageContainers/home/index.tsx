@@ -1,10 +1,9 @@
 import { MovieType } from '@/types';
-import Image from 'next/image';
 import * as S from './style.css';
 import Link from 'next/link';
 
 const HomePage = async () => {
-  const movieList: MovieType[] = await getMovieList();
+  const movieList = await getMovieList();
 
   return (
     <div className={S.Container}>
@@ -13,11 +12,10 @@ const HomePage = async () => {
           <div className={S.MovieBox} key={movie.id}>
             <h1 className={S.MovieTitle}>{movie.title}</h1>
             <Link href={`/movie/${movie.id}`}>
-              <Image
-                width={300}
-                height={420}
+              <img
+                className={S.Poster}
                 src={movie.poster_path}
-                alt={`${movie.title} image`}
+                alt={`${movie.title} img`}
               />
             </Link>
           </div>
@@ -27,11 +25,11 @@ const HomePage = async () => {
   );
 };
 
-const getMovieList = async () => {
-  const response = await fetch(`${process.env.NEXT_API_BASE_URL}/movies`);
-  const json = await response.json();
+const getMovieList = async (): Promise<MovieType[]> => {
+  const response = await fetch(`${process.env.NEXT_API_BASE_URL}`);
+  const movieList = await response.json();
 
-  return json;
+  return movieList;
 };
 
 export default HomePage;
